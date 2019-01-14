@@ -1,44 +1,25 @@
 import 'package:flutter/material.dart';
 
+import './product_manager.dart';
+
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return _MyAppState();
-  }
-}
-
-//                            <> - Class which this state class belongs to is MyApp 1:58
-class _MyAppState extends State<MyApp> {
-  List<String> _products = ['Food Tester']; //first element is 'Food Tester'
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      home: Scaffold(
+      theme: ThemeData(//Theme: sets the design of the app-ThemeData()- by flutter- sets the theme of app by passing it values
+        brightness: Brightness.light,
+        primarySwatch: Colors.deepOrange,//primarySwatch-rest picked for u, Colors-provide static properties provided by flutter
+        accentColor: Colors.deepPurple//many other options in ThemeData you can play with
+      ),
+        home: Scaffold(
           appBar: AppBar(
             title: Text('EasyList'),
           ),
-          body: Column(
-            children: <Widget>[
-              Container(
-                  margin: EdgeInsets.all(10.0),
-                  child: RaisedButton(
-                    onPressed: () {
-                      setState(() {
-                        _products.add("Advanced Food Tester");
-                      });
-                    },
-                    child: Text('Add Product'),
-                  )
-                  //btn w background color
-                  ),
-
-            ],
-          )),
+          body: ProductManager(startingProduct: 'Food Testerr'),
+        )
     ); //root widget is material app widget
   } //widgets always return a widget until you reach a widget that ships with flutter
 }

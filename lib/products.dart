@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+//lifecycle calls - ctor -> build
 class Products extends StatelessWidget {
 
   final List<String> products;//be init once at ctor and never again
